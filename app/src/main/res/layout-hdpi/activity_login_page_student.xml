@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPageTeacher"
+    tools:context=".LoginPageStudent"
     android:orientation="vertical"
     android:background="#fff"
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/logo_image_teacher"
-        android:layout_width="201dp"
-        android:layout_height="122dp"
+        android:id="@+id/logo_image_student"
+        android:layout_width="174dp"
+        android:layout_height="77dp"
         android:src="@drawable/rr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,25 +22,25 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/logo_name_teacher"
-        android:layout_width="281dp"
-        android:layout_height="106dp"
+        android:id="@+id/logo_name_student"
+        android:layout_width="315dp"
+        android:layout_height="93dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:fontFamily="sans-serif-black"
         android:text="Hello there, Welcome Back"
         android:textColor="#000"
-        android:textSize="40sp"
+        android:textSize="38sp"
         android:transitionName="logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <TextView
-        android:id="@+id/slogan_name_teacher"
+        android:id="@+id/slogan_name_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up to continue"
@@ -50,11 +50,11 @@
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintVertical_bias="0.32" />
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayout_student"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         android:layout_width="match_parent"
@@ -71,14 +71,14 @@
         app:layout_constraintVertical_bias="0.41000003">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_log_teacher"
+            android:id="@+id/email_log_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayout2_student"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         android:layout_width="match_parent"
@@ -92,35 +92,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53"
+        app:layout_constraintVertical_bias="0.55"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_log_teacher"
+            android:id="@+id/password_log_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/forgot_teacher"
+        android:id="@+id/forgot_student"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_margin="5dp"
         android:background="#00000000"
-        android:textColor="#121111"
         android:elevation="0dp"
         android:text="Forget Password?"
+        android:textColor="#121111"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <Button
-        android:id="@+id/login_teacher"
+        android:id="@+id/login_student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -130,16 +130,17 @@
         android:background="#000"
         android:text="LOG IN"
         android:textColor="#fff"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71000004" />
+        app:layout_constraintVertical_bias="0.77" />
 
     <TextView
-        android:id="@+id/phnno_log_teacher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/phnno_log_student"
+        android:layout_width="309dp"
+        android:layout_height="25dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginEnd="20dp"
@@ -149,12 +150,13 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.84000003" />
 
     <ProgressBar
-        android:id="@+id/progressBar_teacher_login"
+        android:id="@+id/progressBar_student_login"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -162,12 +164,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
