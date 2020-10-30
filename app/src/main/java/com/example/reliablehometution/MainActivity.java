@@ -10,6 +10,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private ImageView teacherimage;
     private ImageView studentimage;
+    private ImageView parentimage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         teacherimage = (ImageView) findViewById(R.id.teacherImage);
         studentimage = (ImageView) findViewById(R.id.childrenImage);
+        parentimage = (ImageView) findViewById(R.id.parentImage);
         teacherimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent_student = new Intent(MainActivity.this, LoginPageStudent.class);
                 startActivity(intent_student);
+            }
+        });
+
+        parentimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_parent = new Intent(MainActivity.this, LoginPageParent.class);
+                startActivity(intent_parent);
             }
         });
     }
