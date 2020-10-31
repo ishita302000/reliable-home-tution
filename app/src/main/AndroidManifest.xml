@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".LoginPageParent"></activity>
+        <activity android:name=".SignUpTeacher"></activity>
+        <activity android:name=".LoginPageParent" />
         <activity android:name=".LoginPageStudent" />
         <activity android:name=".LoginPageTeacher" />
         <activity
