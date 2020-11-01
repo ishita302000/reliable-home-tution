@@ -11,22 +11,21 @@
 
     <ImageView
         android:id="@+id/logo_image_parent"
-        android:layout_width="201dp"
-        android:layout_height="122dp"
+        android:layout_width="240dp"
+        android:layout_height="124dp"
         android:src="@drawable/rr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/logo_name_parent"
-        android:layout_width="281dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_width="340dp"
+        android:layout_height="99dp"
+
         android:fontFamily="sans-serif-black"
         android:text="Hello there, Welcome Back"
         android:textColor="#000"
@@ -34,10 +33,10 @@
         android:transitionName="logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.204" />
 
     <TextView
         android:id="@+id/slogan_name_parent"
@@ -165,9 +164,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.878" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

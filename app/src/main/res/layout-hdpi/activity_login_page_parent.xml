@@ -11,22 +11,21 @@
 
     <ImageView
         android:id="@+id/logo_image_parent"
-        android:layout_width="174dp"
-        android:layout_height="77dp"
+        android:layout_width="206dp"
+        android:layout_height="93dp"
         android:src="@drawable/rr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/logo_name_parent"
-        android:layout_width="315dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+
         android:fontFamily="sans-serif-black"
         android:text="Hello there, Welcome Back"
         android:textColor="#000"
@@ -34,10 +33,10 @@
         android:transitionName="logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <TextView
         android:id="@+id/slogan_name_parent"
@@ -169,7 +168,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.932" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
