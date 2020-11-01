@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".qualification_teacher"></activity>
+        <activity android:name=".form_parent"></activity>
+        <activity android:name=".form_student" />
+        <activity android:name=".form_teacher" />
+        <activity android:name=".qualification_teacher" />
         <activity android:name=".professional_teacher" />
         <activity android:name=".personal_details_parent" />
         <activity android:name=".personal_details_teacher" />
