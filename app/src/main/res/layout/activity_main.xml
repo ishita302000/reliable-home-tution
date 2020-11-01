@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/teacherImage"
+        android:id="@+id/childrenImage"
         android:layout_width="127dp"
         android:layout_height="134dp"
         android:layout_alignParentEnd="true"
@@ -26,7 +26,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/childrenImage"
+        android:id="@+id/teacherImage"
         android:layout_width="129dp"
         android:layout_height="136dp"
         android:layout_alignParentEnd="true"
@@ -58,10 +58,10 @@
         app:civ_shadow_color="#3f51b5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385"
+        app:layout_constraintVertical_bias="0.382"
         tools:ignore="MissingConstraints" />
 
 
