@@ -13,7 +13,7 @@
         android:text="Upload your photo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651"
+        app:layout_constraintVertical_bias="0.645"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="32dp" />
 
@@ -21,11 +21,13 @@
         android:id="@+id/nextbutton_t"
         android:layout_width="346dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="140dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/teacherImage"
