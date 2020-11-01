@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "677328294354",
+    "firebase_url": "https://reliable-home-tution.firebaseio.com",
+    "project_id": "reliable-home-tution",
+    "storage_bucket": "reliable-home-tution.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677328294354:android:948515ef16193a015db80b",
+        "android_client_info": {
+          "package_name": "com.example.reliablehometution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677328294354-8u15d06n15pf9v5ngkg7u27e09uaees5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPZf67L4kUxH33OZPaPe06yuG7ozDsNPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677328294354-8u15d06n15pf9v5ngkg7u27e09uaees5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
