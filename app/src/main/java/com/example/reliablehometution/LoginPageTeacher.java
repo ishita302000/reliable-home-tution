@@ -12,6 +12,7 @@ public class LoginPageTeacher extends AppCompatActivity {
 
     private TextView signUp_LoginPageTeacher;
     private TextView login_with_phoneno_LoginPageTeacher;
+    private Button loginnext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,15 @@ public class LoginPageTeacher extends AppCompatActivity {
                 startActivity( new Intent(LoginPageTeacher.this,LoginTeacherPhone.class));
             }
         });
+        loginnext = findViewById(R.id.login_teacher);
+        loginnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginPageTeacher.this , form_teacher.class));
+            }
+        });
+
+
     }
 
 }

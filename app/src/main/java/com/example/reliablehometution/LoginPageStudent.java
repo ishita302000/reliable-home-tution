@@ -39,7 +39,7 @@ public class LoginPageStudent extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent(LoginPageStudent.this,personal_details_student.class));
+                startActivity( new Intent(LoginPageStudent.this,form_student.class));
             }
         });
     }
