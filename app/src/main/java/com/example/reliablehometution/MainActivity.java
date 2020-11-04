@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         parentimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent_parent = new Intent(MainActivity.this, LoginPageParent.class);
                 startActivity(intent_parent);
             }
