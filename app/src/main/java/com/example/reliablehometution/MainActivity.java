@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         studentimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent_student = new Intent(MainActivity.this, LoginPageStudent.class);
                 startActivity(intent_student);
             }
