@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.41000003">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phn__login_teacher"
+            android:id="@+id/phn__login_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"/>
@@ -97,7 +97,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginotp_teacher"
+            android:id="@+id/loginotp_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"/>
@@ -106,7 +106,7 @@
 
 
     <Button
-        android:id="@+id/login_phn_teacher"
+        android:id="@+id/login_phn_student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -140,7 +140,7 @@
         app:layout_constraintVertical_bias="0.79" />
 
     <ProgressBar
-        android:id="@+id/progressBar_teacher_pn"
+        android:id="@+id/progressBar_student_pn"
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
