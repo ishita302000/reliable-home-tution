@@ -66,6 +66,7 @@ public class LoginPageParent extends AppCompatActivity {
                 String password_login=password_LoginPageParent.getText().toString().trim();
                 if(TextUtils.isEmpty(email_login)) {
                     email_LoginPageParent.setError("username is required");
+                    startActivity(new Intent(LoginPageParent.this,personal_details_parent.class));
                     return;
                 }
                 if(TextUtils.isEmpty(password_login)) {
