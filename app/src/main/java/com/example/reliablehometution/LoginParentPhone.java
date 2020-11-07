@@ -154,7 +154,7 @@ public class LoginParentPhone extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
                                     progressBar.setVisibility(View.GONE);
-                                    startActivity(new Intent(LoginParentPhone.this,form_teacher.class));
+                                    startActivity(new Intent(LoginParentPhone.this,personal_details_parent.class));
                                     //Toast.makeText(phn_teacher.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
