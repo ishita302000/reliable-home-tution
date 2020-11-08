@@ -59,15 +59,18 @@ public class LoginPageTeacher extends AppCompatActivity {
                 String password_login=password_LoginPageteacher.getText().toString().trim();
                 if(TextUtils.isEmpty(email_login)) {
                     email_LoginPageTeacher.setError("email is required");
+
                     return;
                 }
                 if(TextUtils.isEmpty(password_login)) {
                     password_LoginPageteacher.setError("password is required");
+
                     return;
                 }
                 if(password_login.length()<6)
                 {
                     password_LoginPageteacher.setError("the password must be more than 6 charaters");
+
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
