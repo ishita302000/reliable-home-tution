@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".LOGOUTforParent"></activity>
+        <activity android:name=".forgot_student"></activity>
+        <activity android:name=".forgot_parent" />
+        <activity android:name=".forgot_teacher" />
+        <activity android:name=".LOGOUTforParent" />
         <activity android:name=".form_parent" />
         <activity android:name=".form_student" />
         <activity android:name=".form_teacher" />
@@ -29,10 +32,9 @@
         <activity android:name=".LoginPageTeacher" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+             />
         <activity
-            android:name=".splash"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

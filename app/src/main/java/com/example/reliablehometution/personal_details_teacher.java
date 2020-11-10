@@ -38,7 +38,6 @@ public class personal_details_teacher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_details_teacher);
-
         //logOut = findViewById(R.id.button);
         age_t = (TextInputEditText)findViewById(R.id.age_teacher);
         gender_t = (TextInputEditText)findViewById(R.id.Gender_teacher);
@@ -98,16 +97,9 @@ public class personal_details_teacher extends AppCompatActivity {
                         //. Log.i("info","on success:user  profile is created"+userId);
                         Intent i = new Intent(personal_details_teacher.this , professional_teacher.class);
                         startActivity(i);
-
                     }
-
                 });
-
-
             }
         });
-
     }
-
-
 }
