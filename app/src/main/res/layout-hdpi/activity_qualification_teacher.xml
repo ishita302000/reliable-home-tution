@@ -27,16 +27,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    android:id="@+id/linearLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="1.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.482">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -189,25 +179,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lang_known_teacher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        android:layout_width="376dp"
-        android:layout_height="60dp"
-        android:hint=" Interested field"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/interested_field_teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
