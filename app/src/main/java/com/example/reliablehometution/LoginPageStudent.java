@@ -96,7 +96,7 @@ public class LoginPageStudent extends AppCompatActivity {
                                         Toast.makeText(LoginPageStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                         login.setEnabled(true);
-                                        startActivity(new Intent(getApplicationContext(),form_student.class));
+                                        startActivity(new Intent(getApplicationContext(),personal_details_student.class));
                                     }else{
                                         Toast.makeText(LoginPageStudent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
