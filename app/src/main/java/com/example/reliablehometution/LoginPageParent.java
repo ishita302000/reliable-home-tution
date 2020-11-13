@@ -90,7 +90,7 @@ public class LoginPageParent extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
                                         Toast.makeText(LoginPageParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),personal_details_parent.class));
+                                        startActivity(new Intent(getApplicationContext(),form_parent.class));
                                     }else{
                                         Toast.makeText(LoginPageParent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);

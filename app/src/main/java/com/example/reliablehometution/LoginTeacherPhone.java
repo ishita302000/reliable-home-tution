@@ -154,7 +154,7 @@ public class LoginTeacherPhone extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
                                     progressBar.setVisibility(View.GONE);
-                                    startActivity(new Intent(LoginTeacherPhone.this,personal_details_teacher.class));
+                                    startActivity(new Intent(LoginTeacherPhone.this,form_teacher.class));
                                     //Toast.makeText(phn_teacher.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
