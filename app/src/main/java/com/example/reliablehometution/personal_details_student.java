@@ -37,8 +37,10 @@ public class personal_details_student extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_personal_details_student);
-        gender_s = findViewById(R.id.Gender_student);
+        age_s = findViewById(R.id.age_student);
+                gender_s = findViewById(R.id.Gender_student);
         birth_s = findViewById(R.id.birth_student);
         schoolname_s = findViewById(R.id.schoolname_student);
         schoolboard_s = findViewById(R.id.Board_student);
