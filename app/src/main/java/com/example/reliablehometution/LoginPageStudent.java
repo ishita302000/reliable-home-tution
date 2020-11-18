@@ -74,6 +74,7 @@ public class LoginPageStudent extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(password_login)) {
                     password_LoginPageteacher.setError("password is required");
+                    startActivity( new Intent(LoginPageStudent.this,StudentPrpfilePage.class));
                     return;
                 }
                 if(password_login.length()<6)
