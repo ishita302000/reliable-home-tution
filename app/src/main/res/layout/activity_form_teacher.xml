@@ -10,23 +10,30 @@
         android:id="@+id/uploadbutton_t"
         android:layout_width="346dp"
         android:layout_height="62dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
         android:text="Upload your photo"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.645"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/nextbutton_t"
         android:layout_width="346dp"
         android:layout_height="62dp"
+        android:layout_marginTop="35dp"
         android:layout_marginBottom="140dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadbutton_t"
         tools:ignore="MissingConstraints" />
 
     <com.mikhaellopez.circularimageview.CircularImageView

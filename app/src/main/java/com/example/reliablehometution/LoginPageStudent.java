@@ -87,13 +87,16 @@ public class LoginPageStudent extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            //Toast.makeText(LoginTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                             DocumentReference documentReference = fstore.collection("STUDENT").document(fAuth.getCurrentUser().getUid());
                             documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
                                         Toast.makeText(LoginPageStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),personal_details_student.class));
+                                        progressBar.setVisibility(View.GONE);
+                                        login.setEnabled(true);
+                                        startActivity(new Intent(getApplicationContext(),form_student.class));
                                     }else{
                                         Toast.makeText(LoginPageStudent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
