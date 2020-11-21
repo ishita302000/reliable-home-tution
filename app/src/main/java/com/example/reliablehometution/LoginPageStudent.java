@@ -74,6 +74,7 @@ public class LoginPageStudent extends AppCompatActivity {
                 }
                 if(TextUtils.isEmpty(password_login)) {
                     password_LoginPageteacher.setError("password is required");
+                    //startActivity( new Intent(LoginPageStudent.this,StudentPrpfilePage.class));
                     return;
                 }
                 if(password_login.length()<6)
@@ -96,7 +97,7 @@ public class LoginPageStudent extends AppCompatActivity {
                                         Toast.makeText(LoginPageStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                         login.setEnabled(true);
-                                        startActivity(new Intent(getApplicationContext(),form_student.class));
+                                        startActivity(new Intent(getApplicationContext(),StudentPrpfilePage.class));
                                     }else{
                                         Toast.makeText(LoginPageStudent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);

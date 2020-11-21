@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_baseline_profile" />
+    <item
+        android:id="@+id/teacherdetails"
+        android:title="@string/teacherdetails"
+        android:icon="@drawable/ic_baseline_teaching_details"/>
+    <item
+        android:id="@+id/contact"
+        android:title="@string/contact"
+        android:icon="@drawable/ic_baseline_contact"/>
+    <item
+        android:id="@+id/notification"
+        android:title="@string/notification"
+        android:icon="@drawable/ic_baseline_notifications"/>
+</menu>
