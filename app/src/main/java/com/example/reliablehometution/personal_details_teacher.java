@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,8 +26,8 @@ public class personal_details_teacher extends AppCompatActivity {
 
     private TextInputEditText name_t;
     private TextInputEditText age_t;
-    private TextInputEditText gender_t;
-    private TextInputEditText martial_t;
+    private AutoCompleteTextView gender_t;
+    private AutoCompleteTextView martial_t;
     private TextInputEditText email_t;
     private TextInputEditText birth_t;
     private TextInputEditText contact_t;
@@ -40,8 +44,8 @@ public class personal_details_teacher extends AppCompatActivity {
         setContentView(R.layout.activity_personal_details_teacher);
         //logOut = findViewById(R.id.button);
         age_t = (TextInputEditText)findViewById(R.id.age_teacher);
-        gender_t = (TextInputEditText)findViewById(R.id.Gender_teacher);
-        martial_t = (TextInputEditText)findViewById(R.id.martial_teacher);
+        gender_t = (AutoCompleteTextView)findViewById(R.id.Gender_teacher);
+        martial_t = (AutoCompleteTextView)findViewById(R.id.martial_teacher);
         // email_t = (TextInputEditText)findViewById(R.id.Email_teacher);
         birth_t = (TextInputEditText)findViewById(R.id.Birth_teacher);
         //contact_t = (TextInputEditText)findViewById(R.id.contact_teacher);
@@ -50,6 +54,33 @@ public class personal_details_teacher extends AppCompatActivity {
         btn_save = (Button)findViewById(R.id.persnal_teacher_button);
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
+
+
+        String[] genderItems = new String[]{"Male","Female","Other"};
+        String[] maritalItems = new String[]{"Married","Single","Divorced","Widow"};
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>( personal_details_teacher.this,R.layout.gender_item,genderItems);
+        ArrayAdapter<String> maritalAdapter = new ArrayAdapter<>( personal_details_teacher.this,R.layout.gender_item,maritalItems);
+        gender_t.setAdapter(genderAdapter);
+        martial_t.setAdapter(maritalAdapter);
+
+        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Select Your Date Of Birth");
+        MaterialDatePicker materialDatePicker = builder.build();
+
+        birth_t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                materialDatePicker.show(getSupportFragmentManager(),"Date Picker");
+            }
+        });
+
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                birth_t.setText(materialDatePicker.getHeaderText());
+            }
+        });
+
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
