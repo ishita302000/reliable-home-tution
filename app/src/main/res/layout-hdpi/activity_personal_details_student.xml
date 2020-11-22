@@ -27,8 +27,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout3"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="377dp"
+            android:layout_height="58dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="2dp"
@@ -53,8 +53,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout11"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="378dp"
+            android:layout_height="52dp"
             android:hint="Gender"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -74,8 +74,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout13"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="375dp"
+            android:layout_height="59dp"
             android:hint="Date Of Birth"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -95,8 +95,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout4"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="375dp"
+            android:layout_height="58dp"
             android:hint="School Name"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -117,8 +117,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout9"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="373dp"
+            android:layout_height="61dp"
             android:hint="School Board "
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -138,8 +138,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout8"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="372dp"
+            android:layout_height="60dp"
             android:hint=" Class"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
@@ -228,7 +228,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
-            android:text="Next"
+            android:text="Submit"
             app:cornerRadius="10dp"
             android:background="#FDC20F"/>
 
