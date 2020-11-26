@@ -71,6 +71,9 @@ public class personal_details_parent extends AppCompatActivity {
         MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Select Your Date Of Birth");
         MaterialDatePicker materialDatePicker = builder.build();
+        birth_p.setFocusable(false);
+        birth_p.setClickable(true);
+        birth_p.setLongClickable(false);
 
         birth_p.setOnClickListener(new View.OnClickListener() {
             @Override

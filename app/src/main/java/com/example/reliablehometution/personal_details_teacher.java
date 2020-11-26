@@ -62,6 +62,9 @@ public class personal_details_teacher extends AppCompatActivity {
         ArrayAdapter<String> maritalAdapter = new ArrayAdapter<>( personal_details_teacher.this,R.layout.gender_item,maritalItems);
         gender_t.setAdapter(genderAdapter);
         martial_t.setAdapter(maritalAdapter);
+        birth_t.setFocusable(false);
+        birth_t.setClickable(true);
+        birth_t.setLongClickable(false);
 
         MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Select Your Date Of Birth");
