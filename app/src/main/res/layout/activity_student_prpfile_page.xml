@@ -42,12 +42,25 @@
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="345dp"
-                        android:layout_height="146dp"
+                        android:layout_height="110dp"
                         android:paddingRight="80dp"
                         app:srcCompat="@drawable/rf" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="70dp"
+                        android:text="REALIABLE HOME TUTION"
+                        android:textColor="#0C0C0C"
+                        android:fontFamily="sans-serif-black"/>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="800dp">
 
