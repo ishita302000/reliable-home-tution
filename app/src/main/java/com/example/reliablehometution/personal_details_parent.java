@@ -7,10 +7,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,16 +27,15 @@ import java.util.Map;
 public class personal_details_parent extends AppCompatActivity {
 
     private TextInputEditText age_p;
-    private TextInputEditText gender_p;
+    private AutoCompleteTextView gender_p;
     private TextInputEditText occupation_p;
-    private TextInputEditText graduation_p;
+    private AutoCompleteTextView graduation_p;
     private TextInputEditText birth_p;
-    private TextInputEditText post_graduation__p;
+    private AutoCompleteTextView post_graduation__p;
     private TextInputEditText address_p;
     private TextInputEditText allergy_p;
-    Button btn_next;
+    MaterialButton btn_save;
    // DatabaseReference reff;
-    Button btn_save;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fstore;
     private String userId_techer;
@@ -41,18 +45,62 @@ public class personal_details_parent extends AppCompatActivity {
         setContentView(R.layout.activity_personal_details_parent);
 
        // age_p = (TextInputEditText)findViewById(R.id.age_p);
-        gender_p = (TextInputEditText)findViewById(R.id.Gender_teacher_p);
-        occupation_p=(TextInputEditText)findViewById(R.id.occupation_parent);
-        graduation_p=(TextInputEditText)findViewById(R.id.graduation_parent);
-        birth_p = (TextInputEditText)findViewById(R.id.Birth_teacher_p);
-        post_graduation__p=(TextInputEditText)findViewById(R.id.post_graduationparent);
-        allergy_p=(TextInputEditText)findViewById(R.id.allergy_parent) ;
-        address_p = (TextInputEditText)findViewById(R.id.address_teacher_p);
+        gender_p = (AutoCompleteTextView) findViewById(R.id.GenderEditText);
+        occupation_p=(TextInputEditText)findViewById(R.id.ocuppationEditText);
+        graduation_p=(AutoCompleteTextView)findViewById(R.id.graduationEditText);
+        birth_p = (TextInputEditText)findViewById(R.id.birthTextView);
+        post_graduation__p=(AutoCompleteTextView) findViewById(R.id.pgEditText);
+        allergy_p=(TextInputEditText)findViewById(R.id.allergyEditText) ;
+        address_p = (TextInputEditText)findViewById(R.id.adressEditText);
         //reff = FirebaseDatabase.getInstance().getReference().child("users");
-        btn_save = (Button)findViewById(R.id.persnal_teacher_button_p);
+        btn_save = (MaterialButton)findViewById(R.id.nextButton);
+
+
+        String[] genderItems = new String[]{"Male","Female","Other"};
+        String[] graduationItems = new String[]{"B.tech","B.sc","B.C.A","B.Arch","other"};
+        String[] postGraduationItems = new String[]{"M.tech","M.sc","M.C.A","M.Arch","other"};
+
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>( personal_details_parent.this,R.layout.gender_item,genderItems);
+        ArrayAdapter<String> graduationAdapter = new ArrayAdapter<>( personal_details_parent.this,R.layout.gender_item,graduationItems);
+        ArrayAdapter<String> postGraduationAdapter = new ArrayAdapter<>( personal_details_parent.this,R.layout.gender_item,postGraduationItems);
+        gender_p.setAdapter(genderAdapter);
+        graduation_p.setAdapter(graduationAdapter);
+        post_graduation__p.setAdapter(postGraduationAdapter);
+
+        //birth_p.setEnabled(false);
+        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
+        builder.setTitleText("Select Your Date Of Birth");
+        MaterialDatePicker materialDatePicker = builder.build();
+        birth_p.setFocusable(false);
+        birth_p.setClickable(true);
+        birth_p.setLongClickable(false);
+
+        birth_p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                materialDatePicker.show(getSupportFragmentManager(),"Date Picker");
+            }
+        });
+
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+            @Override
+            public void onPositiveButtonClick(Object selection) {
+                birth_p.setText(materialDatePicker.getHeaderText());
+            }
+        });
 
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
+
+        /*btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String gender=gender_p.getText().toString().trim();
+                String graduation=graduation_p.getText().toString().trim();
+                String post_graduation=post_graduation__p.getText().toString().trim();
+                Toast.makeText(personal_details_parent.this,gender+"\n"+graduation+"\n"+post_graduation,Toast.LENGTH_LONG).show();
+            }
+        });*/
 
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
