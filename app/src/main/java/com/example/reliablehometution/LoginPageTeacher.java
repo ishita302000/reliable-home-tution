@@ -88,7 +88,7 @@ public class LoginPageTeacher extends AppCompatActivity {
                                         Toast.makeText(LoginPageTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
                                         login_btn_LoginPageteacher.setEnabled(true);
-                                        startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                                        startActivity(new Intent(getApplicationContext(),TeacherProfilePage.class));
                                     }else{
                                         Toast.makeText(LoginPageTeacher.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);

@@ -10,8 +10,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,7 +31,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_prpfile_page);
+        setContentView(R.layout.activity_student_profile_page);
 
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navView);
@@ -44,8 +42,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
         TextView class1 = (TextView)findViewById(R.id.class1);
        TextView name = (TextView) findViewById(R.id.name);
 
-         navigationView  = findViewById(R.id.navView);
-         View nav_header = navigationView.getHeaderView(0);
+        View nav_header = navigationView.getHeaderView(0);
         TextView nav_name = (TextView) nav_header.findViewById(R.id.nav_name);
 
         db = FirebaseFirestore.getInstance();
@@ -90,7 +87,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
                        nav_name.setText(document.getString("name"));
                         //Log.d("info", "No such document");
                     }
-                } else {
+                }
+                else {
                     //Toast.makeText(StudentPrpfilePage.this, "get failed with ",Toast.LENGTH_SHORT).show();
                     Log.d("info", "get failed with ", task.getException());
                 }
