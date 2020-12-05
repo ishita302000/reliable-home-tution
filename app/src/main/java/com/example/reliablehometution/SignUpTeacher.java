@@ -154,8 +154,8 @@ public class SignUpTeacher extends AppCompatActivity {
                                 DocumentReference documentReference = fstore.collection("TEACHER").document(userId_techer);
                                 Map<String, Object> user = new HashMap<>();
                                 user.put("name", teacher_name);
-                                user.put("E-mail", teacher_email);
-                                user.put("PhoneNo", teacher_phoneNo);
+                                user.put("mail", teacher_email);
+                                user.put("phoneNo", teacher_phoneNo);
 
                                 u=1;
 
