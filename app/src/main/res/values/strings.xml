@@ -6,4 +6,6 @@
     <string name="notification">Notification</string>
     <string name="open" />
     <string name="close" />
+    <string name="logout">logout</string>
+    <string name="feedback" />
 </resources>

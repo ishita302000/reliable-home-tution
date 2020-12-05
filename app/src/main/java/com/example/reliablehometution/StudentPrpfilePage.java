@@ -8,9 +8,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,18 +31,20 @@ public class StudentPrpfilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_prpfile_page);
+        setContentView(R.layout.activity_student_profile_page);
 
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationView = findViewById(R.id.navView);
-        TextView address = (TextView)findViewById(R.id.address);
+
         TextView age = (TextView)findViewById(R.id.age);
-        TextView birth = (TextView)findViewById(R.id.birth);
+
         TextView blood_group = (TextView)findViewById(R.id.bloodgroup);
         TextView class1 = (TextView)findViewById(R.id.class1);
-        TextView gender = (TextView)findViewById(R.id.gender);
-        TextView percentage = (TextView)findViewById(R.id.percentage);
-        TextView school_board = (TextView)findViewById(R.id.school_board);
+       TextView name = (TextView) findViewById(R.id.name);
+
+        View nav_header = navigationView.getHeaderView(0);
+        TextView nav_name = (TextView) nav_header.findViewById(R.id.nav_name);
+
         db = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
@@ -60,14 +61,12 @@ public class StudentPrpfilePage extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                        // Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        address.setText(document.getString("address"));
+
                         age.setText(document.getString("age"));
-                        birth.setText(document.getString("birth"));
+
                         blood_group.setText(document.getString("blood group"));
                         class1.setText(document.getString("class"));
-                        gender.setText(document.getString("gender"));
-                        percentage.setText(document.getString("percentage"));
-                        school_board.setText(document.getString("school board"));
+
                         //Log.d("info", "No such document");
                     }
                 } else {
@@ -75,6 +74,27 @@ public class StudentPrpfilePage extends AppCompatActivity {
                 }
             }
         });
+        DocumentReference docRef1 = db.collection("STUDENT").document(user.getUid());
+        docRef1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        // Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+
+                       name.setText(document.getString("name"));
+                       nav_name.setText(document.getString("name"));
+                        //Log.d("info", "No such document");
+                    }
+                }
+                else {
+                    //Toast.makeText(StudentPrpfilePage.this, "get failed with ",Toast.LENGTH_SHORT).show();
+                    Log.d("info", "get failed with ", task.getException());
+                }
+            }
+        });
+
     }
 
     @Override
