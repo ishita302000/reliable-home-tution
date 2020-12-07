@@ -5,24 +5,40 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView teacherimage;
-    private ImageView studentimage;
-    private ImageView parentimage;
+    private MaterialCardView teacherCardView;
+    private MaterialCardView studentCardView;
+    private MaterialCardView parentCardView;
+    
+    private Animation animation1;
+    private Animation animation2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        teacherimage = (ImageView) findViewById(R.id.teacherImage);
-        studentimage = (ImageView) findViewById(R.id.childrenImage);
-        parentimage = (ImageView) findViewById(R.id.parentImage);
+        teacherCardView = findViewById(R.id.teacherCardView);
+        studentCardView = findViewById(R.id.studentCardView);
+        parentCardView = findViewById(R.id.parentCardView);
 
-        teacherimage.setOnClickListener(new View.OnClickListener() {
+        animation1 = AnimationUtils.loadAnimation(this,R.anim.from_left);
+        teacherCardView.setAnimation(animation1);
+
+        animation2 = AnimationUtils.loadAnimation(this,R.anim.from_right);
+        studentCardView.setAnimation(animation2);
+
+        animation1 = AnimationUtils.loadAnimation(this,R.anim.from_left);
+        parentCardView.setAnimation(animation1);
+
+        teacherCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -32,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        studentimage.setOnClickListener(new View.OnClickListener() {
+        studentCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
@@ -41,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        parentimage.setOnClickListener(new View.OnClickListener() {
+        parentCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
