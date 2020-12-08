@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".TeacherProfilePage"></activity>
+        <activity android:name=".feedbacks"></activity>
+        <activity android:name=".TeacherProfilePage" />
         <activity android:name=".StudentPrpfilePage" />
         <activity android:name=".forgot_student" />
         <activity android:name=".forgot_parent" />
@@ -24,7 +25,7 @@
         <activity android:name=".form_teacher" />
         <activity android:name=".qualification_teacher" />
         <activity android:name=".professional_teacher" />
-        <activity android:name=".personal_details_parent"></activity>
+        <activity android:name=".personal_details_parent" />
         <activity android:name=".personal_details_teacher" />
         <activity android:name=".personal_details_student" />
         <activity android:name=".LoginParentPhone" />
@@ -54,6 +55,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

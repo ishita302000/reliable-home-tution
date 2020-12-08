@@ -3,8 +3,12 @@ package com.example.reliablehometution;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,6 +17,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,6 +33,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
    private FirebaseFirestore db;
    private FirebaseUser user;
    private FirebaseAuth fAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +49,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
         TextView class1 = (TextView)findViewById(R.id.class1);
        TextView name = (TextView) findViewById(R.id.name);
 
+
         View nav_header = navigationView.getHeaderView(0);
         TextView nav_name = (TextView) nav_header.findViewById(R.id.nav_name);
 
@@ -52,7 +60,24 @@ public class StudentPrpfilePage extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.feedback :
+                        startActivity(new Intent(StudentPrpfilePage.this,feedbacks.class));
+                        break;
+                    case R.id.logout :
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(StudentPrpfilePage.this,LoginPageStudent.class));
+                        finish();
+                        break;
+                }
 
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
         DocumentReference docRef = db.collection("STUDENT_PERSONAL_DETAILS").document(user.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -98,10 +123,21 @@ public class StudentPrpfilePage extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(StudentPrpfilePage.this,StudentPrpfilePage.class));
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(toggle.onOptionsItemSelected(item)){
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }
