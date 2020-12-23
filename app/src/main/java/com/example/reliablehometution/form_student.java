@@ -21,7 +21,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -40,6 +47,10 @@ public class form_student extends AppCompatActivity {
     private StorageReference storageReference;
     private Button camera ;
     private Button next ;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseStorage;
+    private FirebaseUser firebaseUser;
+    private String nameE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +60,28 @@ public class form_student extends AppCompatActivity {
         camera = findViewById(R.id.uploadbutton_s);
         next = findViewById(R.id.nextbutton_s);
         storageReference = FirebaseStorage.getInstance().getReference();
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseStorage = FirebaseFirestore.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
+        DocumentReference docref = firebaseStorage.collection("STUDENT").document(firebaseUser.getUid());
+        docref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot document = task.getResult();
+                    if(document.exists())
+                    {
+                        nameE = document.getString("name");
+                    }
+                }
+                else
+                {
+                    Log.d("info" , "get failed with" , task.getException());
+                }
+            }
+        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +146,7 @@ public class form_student extends AppCompatActivity {
     }
 
     private void uploadImagetoFirebase(String name, Uri contentUri) {
-        StorageReference image = storageReference.child("STUDENT/"+name);
+        StorageReference image = storageReference.child("STUDENT/"+"+-"+nameE);
         image.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

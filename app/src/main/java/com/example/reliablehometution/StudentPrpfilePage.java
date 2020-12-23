@@ -9,13 +9,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -24,6 +28,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 
 public class StudentPrpfilePage extends AppCompatActivity {
 
@@ -33,8 +43,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
    private FirebaseFirestore db;
    private FirebaseUser user;
    private FirebaseAuth fAuth;
-
-
+   private StorageReference mStoragereference;
+   private String filename;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +67,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
         toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
+
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -109,6 +121,20 @@ public class StudentPrpfilePage extends AppCompatActivity {
                         // Log.d(TAG, "DocumentSnapshot data: " + document.getData());
 
                        name.setText(document.getString("name"));
+                      //filena me = "STUDENT/"+"+-"+document.getString("name");
+                        mStoragereference = FirebaseStorage.getInstance().getReference().child("STUDENT/+-"+document.getString("name"));
+                        try {
+                            final File file = File.createTempFile("image", "jpg");
+                            mStoragereference.getFile(file).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                                    ((ImageView)findViewById(R.id.imageView_profile)).setImageBitmap(bitmap);
+                                }
+                            });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                        nav_name.setText(document.getString("name"));
                         //Log.d("info", "No such document");
                     }
@@ -119,6 +145,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 
