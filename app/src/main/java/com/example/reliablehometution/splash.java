@@ -13,37 +13,27 @@ import android.widget.TextView;
 
 public class splash extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 4000;
-    Animation topAnim;
-    Animation bottomAnim;
-
-    private ImageView image;
-    private TextView logo;
-    private TextView slogan;
+    private ImageView imageView;
+    private Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_main);
 
-            image = (ImageView) findViewById(R.id.imageView);
-            logo = findViewById(R.id.textView);
-            //slogan = findViewById(R.id.textView2);
+        imageView = findViewById(R.id.imageVieww);
+        animation = AnimationUtils.loadAnimation(this,R.anim.splash_animation);
 
-            topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-            bottomAnim = AnimationUtils.loadAnimation(this, R.anim.botttom_animation);
+        imageView.setAnimation(animation);
 
-            image.setAnimation(topAnim);
-            logo.setAnimation(bottomAnim);
-            //slogan.setAnimation(bottomAnim);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(splash.this , MainActivity.class );
+                startActivity(intent);
+                finish();
+            }
+        },3000);
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent=new Intent(splash.this , MainActivity.class );
-                    startActivity(intent);
-                    finish();
-                }
-            },SPLASH_SCREEN);
     }
 }
