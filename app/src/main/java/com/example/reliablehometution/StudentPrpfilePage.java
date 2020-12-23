@@ -62,6 +62,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
 
         View nav_header = navigationView.getHeaderView(0);
         TextView nav_name = (TextView) nav_header.findViewById(R.id.nav_name);
+        ImageView navigation_profile = (ImageView) nav_header.findViewById(R.id.imageView10);
 
         db = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
@@ -130,6 +131,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
                                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                                     Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                                     ((ImageView)findViewById(R.id.imageView_profile)).setImageBitmap(bitmap);
+                                    navigation_profile.setImageBitmap(bitmap);
                                 }
                             });
                         } catch (IOException e) {
