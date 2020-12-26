@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".feedbacks"></activity>
+        <activity android:name=".contacts"></activity>
+        <activity android:name=".feedbacks" />
         <activity android:name=".TeacherProfilePage" />
         <activity android:name=".StudentPrpfilePage" />
         <activity android:name=".forgot_student" />

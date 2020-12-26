@@ -85,6 +85,9 @@ public class StudentPrpfilePage extends AppCompatActivity {
                         startActivity(new Intent(StudentPrpfilePage.this,LoginPageStudent.class));
                         finish();
                         break;
+                    case R.id.contact :
+                        startActivity(new Intent(StudentPrpfilePage.this,contacts.class));
+                        break;
                 }
 
                 drawerLayout.closeDrawer(GravityCompat.START);
