@@ -102,7 +102,7 @@ public class LoginPageStudent extends AppCompatActivity {
                                                                                           @Override
                                                                                           public void onSuccess(DocumentSnapshot documentSnapshot) {
                                                                                               if(documentSnapshot.exists()){
-                                                                                                  startActivity(new Intent(getApplicationContext(),StudentPrpfilePage.class));
+                                                                                                  startActivity(new Intent(getApplicationContext(),uploadFileactivity.class));
                                                                                               }
                                                                                               else{
                                                                                                   startActivity(new Intent(getApplicationContext(),form_student.class));

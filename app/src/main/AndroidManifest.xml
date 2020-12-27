@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".contacts"></activity>
+        <activity android:name=".uploadFileactivity"></activity>
+        <activity android:name=".contacts" />
         <activity android:name=".feedbacks" />
         <activity android:name=".TeacherProfilePage" />
         <activity android:name=".StudentPrpfilePage" />
@@ -62,5 +65,4 @@
             android:resource="@array/preloaded_fonts" />
     </application>
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 </manifest>
