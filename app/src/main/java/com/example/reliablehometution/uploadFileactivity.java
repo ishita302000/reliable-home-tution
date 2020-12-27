@@ -149,6 +149,8 @@ public class uploadFileactivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 pd.dismiss();
                 Toast.makeText(getApplicationContext(),"File uploaded successfuly",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(uploadFileactivity.this,StudentPrpfilePage.class));
+                finish();
             }
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override

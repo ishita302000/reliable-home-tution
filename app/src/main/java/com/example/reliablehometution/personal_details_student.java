@@ -153,7 +153,7 @@ public class personal_details_student extends AppCompatActivity {
                         //   Intent i = new Intent(uploadphoto_student.this , professional_teacher.class);
                         // startActivity(i);
                         Toast.makeText(personal_details_student.this, "ThankYou for filling the form ", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(personal_details_student.this, LOGOUTforParent.class));
+                        startActivity(new Intent(personal_details_student.this, uploadFileactivity.class));
                     }
                 });
 
