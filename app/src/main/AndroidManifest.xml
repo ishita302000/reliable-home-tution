@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReliableHomeTution">
-        <activity android:name=".uploadFileactivity"></activity>
+        <activity android:name=".StudentDetails"></activity>
+        <activity android:name=".uploadFileactivity" />
         <activity android:name=".contacts" />
         <activity android:name=".feedbacks" />
         <activity android:name=".TeacherProfilePage" />
