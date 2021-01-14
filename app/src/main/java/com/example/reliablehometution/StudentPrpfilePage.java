@@ -181,7 +181,7 @@ public class StudentPrpfilePage extends AppCompatActivity {
                         Map<String, Object> b=document.getData();
                         Object c = b.get("student");
                         String k = (String) c;
-                       if(k.equals(nav_name.getText().toString()))
+                       if(k.equals(nav_name.getText() ))
                            arraylist.add(new StudentTeacherTimetable((String)b.get("teacher")));
                         //Toast.makeText(other.this,"size"+(String)c,Toast.LENGTH_SHORT).show();
                     }
