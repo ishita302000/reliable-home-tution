@@ -7,6 +7,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,12 +33,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class StudentPrpfilePage extends AppCompatActivity {
 
@@ -44,7 +54,15 @@ public class StudentPrpfilePage extends AppCompatActivity {
    private FirebaseUser user;
    private FirebaseAuth fAuth;
    private StorageReference mStoragereference;
+   private  String name_of_logined_user;
    private String filename;
+   private List<StudentTeacherTimetable> arraylist = new ArrayList<>();
+   private StudentTimetableAdapterView studentTimetableAdapterView;
+  private int checker = 0;
+
+    public StudentPrpfilePage() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,8 +144,8 @@ public class StudentPrpfilePage extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         // Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-
-                       name.setText(document.getString("name"));
+                         name_of_logined_user = document.getString("name");
+                       name.setText(name_of_logined_user);
                       //filena me = "STUDENT/"+"+-"+document.getString("name");
                         mStoragereference = FirebaseStorage.getInstance().getReference().child("STUDENT/+-"+document.getString("name"));
                         try {
@@ -155,6 +173,33 @@ public class StudentPrpfilePage extends AppCompatActivity {
         });
 
 
+        db.collection("STUDENT_TEACHER_TIMETABLE").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Map<String, Object> b=document.getData();
+                        Object c = b.get("student");
+                        String k = (String) c;
+                       if(k.equals(nav_name.getText().toString()))
+                           arraylist.add(new StudentTeacherTimetable((String)b.get("teacher")));
+                        //Toast.makeText(other.this,"size"+(String)c,Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(StudentPrpfilePage.this,"size"+arraylist.size(),Toast.LENGTH_SHORT).show();
+                    RecyclerView recyclerView_timetable = findViewById(R.id.recycler_view_timetable);
+                    studentTimetableAdapterView = new StudentTimetableAdapterView(arraylist,StudentPrpfilePage.this);
+                    RecyclerView.LayoutManager mLayoutManager =
+                            new LinearLayoutManager(StudentPrpfilePage.this);
+                    recyclerView_timetable.setLayoutManager(mLayoutManager);
+                    recyclerView_timetable.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView_timetable.addItemDecoration(new DividerItemDecoration(StudentPrpfilePage.this, LinearLayoutManager.VERTICAL));
+                    recyclerView_timetable.setAdapter(studentTimetableAdapterView);
+                }
+                else {
+                    Toast.makeText(StudentPrpfilePage.this,"failed to retrive data",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

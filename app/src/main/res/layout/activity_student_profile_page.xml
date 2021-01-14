@@ -63,6 +63,7 @@
 
 
                     <include layout="@layout/putting_details_student" />
+
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -70,14 +71,16 @@
                     android:layout_height="300dp"
                     android:layout_margin="10dp"
                     app:cardCornerRadius="8dp">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="245dp"
-                        android:layout_height="157dp"
-                        android:gravity="center"
-                        android:text="time table added"
-                        android:textSize="30sp" />
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_timetable"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp" >
+                    </androidx.recyclerview.widget.RecyclerView>
+             </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
